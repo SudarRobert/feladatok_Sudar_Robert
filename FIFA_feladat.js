@@ -3,7 +3,7 @@
 //1. feladat
 
 var MongoClient = require("mongodb").MongoClient;
-var url = "mongodb+srv://t13sudi:*****@cluster0.7hubinu.mongodb.net/";
+var url = "mongodb+srv://t13sudi:*******@cluster0.7hubinu.mongodb.net/";
 
 async function kollekcioLetrehozas() {
     try {
@@ -51,18 +51,18 @@ async function adatokFeltoltese() {
             "Uruguay;6;-1;1639",
         ]
 
-        const fifaData = [];
+        const fifaAdat = [];
         for (let i = 0; i < fifa.length; i++) {
-            const splitData = fifa[i].split(';');
-            fifaData.push({
-                Csapat: splitData[0],
-                Helyezes: Number(splitData[1]),
-                Valtozas: Number(splitData[2]),
-                Pontszam: Number(splitData[3])
+            const splitAdat = fifa[i].split(';');
+            fifaAdat.push({
+                Csapat: splitAdat[0],
+                Helyezes: Number(splitAdat[1]),
+                Valtozas: Number(splitAdat[2]),
+                Pontszam: Number(splitAdat[3])
             });
         }
 
-        await db.collection("FIFA").insertMany(fifaData);
+        await db.collection("FIFA").insertMany(fifaAdat);
         console.log("2. feladat - Adatok sikeresen feltöltve a FIFA kollekcióba");
         client.close();
     } catch (err) {
